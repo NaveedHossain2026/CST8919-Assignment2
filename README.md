@@ -114,28 +114,32 @@ All three platforms can support common security and compliance frameworks such a
 ## 4. Cloud Security Posture Management & Workload Protection
 
 ### Overview
-| | Microsoft Defender for Cloud | AWS Security Hub + GuardDuty + Inspector | Google Security Command Center (SCC) |
-|---|---|---|---|
-| **Purpose** | Combines Cloud Security Posture Management (CSPM) with Cloud Workload Protection (CWPP) across Azure, AWS, GCP, and on-prem | Security Hub aggregates findings (CSPM); GuardDuty provides threat detection; Inspector performs vulnerability scanning | Centralized asset inventory, vulnerability/misconfiguration detection, and threat detection for GCP resources |
 
-Microsoft Defender for Cloud is explicitly multi-cloud, continuously assessing security posture across Azure, AWS, and GCP resources and providing prioritized, benchmark-aligned recommendations plus automated remediation. AWS Security Hub is primarily a findings-aggregation and CSPM service that depends on other AWS services (GuardDuty for threat detection, Inspector for vulnerability scanning, IAM Access Analyzer) to supply its data, and it is AWS-account-centric by design. Google SCC combines asset inventory, misconfiguration/vulnerability detection, and can integrate a built-in SIEM/SOAR layer, with strong integrations into BigQuery and third-party tools.
+| **Aspect** | **Microsoft Defender for Cloud** | **AWS Security Hub + GuardDuty + Inspector** | **Google Security Command Center (SCC)** |
+|---|---|---|---|
+| **Purpose** | Combines Cloud Security Posture Management (CSPM) and Cloud Workload Protection (CWPP) across Azure, AWS, GCP, and on-premises environments. | Security Hub aggregates security findings and provides CSPM capabilities, while GuardDuty provides threat detection and Inspector performs vulnerability scanning. | Provides centralized asset inventory, vulnerability and misconfiguration detection, and threat detection for GCP resources. |
+
+Microsoft Defender for Cloud provides multi-cloud security management, continuously assessing security posture across Azure, AWS, and GCP resources. It provides prioritized, benchmark-aligned recommendations and supports automated remediation. AWS Security Hub primarily aggregates and correlates findings from AWS security services such as GuardDuty and Inspector, making it particularly effective in AWS environments. Google Security Command Center combines asset inventory, security analytics, vulnerability detection, and threat detection, with integrations for external security and data-analysis tools.
 
 ### Core Features
-- **Defender for Cloud:** Secure Score, attack path analysis, Just-in-Time VM access, container/Kubernetes protection, regulatory compliance dashboard, multi-cloud connectors.
-- **AWS Security Hub/GuardDuty/Inspector:** AWS Security Finding Format normalization, CIS/PCI DSS/NIST standards mapping, automated response via EventBridge, GuardDuty's ML-based anomaly detection on VPC Flow Logs/CloudTrail/DNS logs.
-- **Google SCC:** Continuous asset discovery, Security Health Analytics, Web Security Scanner, Event Threat Detection, integration with Forseti and third-party SIEM/SOAR tooling.
+
+- **Microsoft Defender for Cloud:** Secure Score, attack path analysis, Just-in-Time (JIT) VM access, container and Kubernetes protection, regulatory compliance dashboards, and multi-cloud connectors.
+- **AWS Security Hub / GuardDuty / Inspector:** Security Finding Format (ASFF) for standardized findings, CIS/PCI DSS/NIST standards mapping, automated response through EventBridge, GuardDuty threat detection using sources such as VPC Flow Logs, CloudTrail, and DNS activity, and Inspector vulnerability scanning.
+- **Google SCC:** Continuous asset discovery, Security Health Analytics for misconfigurations, vulnerability detection, Event Threat Detection, and integrations with SIEM/SOAR and third-party security tools.
 
 ### Security & Compliance
-All three map findings to CIS Benchmarks, PCI DSS, and NIST frameworks and support attestation reporting for auditors. Defender for Cloud differentiates with native cross-cloud coverage (protecting AWS/GCP resources directly from the Azure control plane); Security Hub is deepest for pure-AWS environments; SCC's Premium/Enterprise tiers add built-in SIEM/SOAR functionality that the other two require external services (Sentinel/SecOps) to achieve.
+
+All three platforms support security and compliance monitoring aligned with frameworks such as CIS Benchmarks, PCI DSS, and NIST. Microsoft Defender for Cloud differentiates itself through its native multi-cloud capabilities, allowing organizations to monitor AWS and GCP resources from the Azure security platform. AWS Security Hub provides particularly strong integration within AWS environments, while Google SCC provides broader security capabilities for GCP workloads and can integrate with additional SIEM/SOAR services for advanced security operations.
 
 ### Pricing Model
-- **Defender for Cloud:** Free foundational CSPM tier; paid "Defender plans" priced per protected resource (VM, SQL, Storage, Kubernetes node, etc.).
-- **AWS Security Hub:** Priced per security check and per finding ingested, plus underlying GuardDuty (per GB of log data analyzed) and Inspector (per resource scanned) costs.
-- **Google SCC:** Free Standard tier for basic asset inventory; Premium/Enterprise tiers priced by asset count/usage and include the added threat-detection and SIEM/SOAR capability.
+
+- **Microsoft Defender for Cloud:** Provides a free foundational CSPM tier, while paid Defender plans are generally priced according to the protected resource, such as virtual machines, databases, storage, or Kubernetes workloads.
+- **AWS Security Hub:** Pricing is based on factors such as security checks and findings ingested. Additional charges apply for services such as GuardDuty and Inspector based on their respective usage.
+- **Google Security Command Center:** Provides a Standard tier with basic security capabilities, while higher-tier offerings provide additional vulnerability detection, threat detection, and security operations features based on usage and protected resources.
 
 ### Integration for DevSecOps
-All three expose APIs/webhooks for pipeline gating (e.g., failing a build on critical findings), support Infrastructure-as-Code scanning integration, and can trigger automated remediation (Azure Logic Apps, AWS EventBridge + Lambda, GCP Cloud Functions/Workflows) as part of a shift-left DevSecOps loop.
 
+All three platforms provide APIs and integrations that can be incorporated into DevSecOps pipelines. Security findings can be used to **gate deployments**, such as failing a build when critical vulnerabilities are detected. Infrastructure-as-Code scanning can identify security issues before deployment, while automated remediation can be triggered through services such as Azure Logic Apps, AWS EventBridge with Lambda, or Google Cloud Workflows and functions. This supports a **shift-left security model**, where security checks are integrated throughout the development and deployment lifecycle.
 ---
 
 ## 5. SIEM / SOAR
