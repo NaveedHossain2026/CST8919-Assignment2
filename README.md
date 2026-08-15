@@ -27,11 +27,12 @@ Throughout this course, we used Microsoft Azure to implement identity, monitorin
 
 ## 1. Identity & Access Management
 
-### Overview
-| | Microsoft Entra ID | AWS IAM / IAM Identity Center | Google Cloud IAM / Cloud Identity |
+## Overview
+
+| **Aspect** | **Microsoft Entra ID** | **AWS IAM / IAM Identity Center** | **Google Cloud IAM / Cloud Identity** |
 |---|---|---|---|
-| **Scope model** | Tenant-wide directory that spans Microsoft 365, Azure, and third-party SaaS | IAM is scoped per AWS account; IAM Identity Center centralizes workforce access across an AWS Organization | Project-level IAM with permission inheritance through folders and the organization node |
-| **Primary role** | Full Identity Provider (IdP) — authenticates *who you are* | Primarily an access-management/authorization system for AWS APIs, not a general-purpose IdP | Authorization layer for GCP resources; Cloud Identity provides the IdP/directory function |
+| **Scope model** | Tenant-wide directory that spans Azure, Microsoft 365, and third-party SaaS applications. | IAM is scoped to individual AWS accounts, while IAM Identity Center provides centralized workforce access across an AWS Organization. | IAM permissions are applied at the organization, folder, project, or resource level, with permissions inherited through the hierarchy. |
+| **Primary role** | Full Identity Provider (IdP) that authenticates users and manages identities and access to applications and cloud resources. | Primarily an access-management and authorization system for AWS resources and APIs. IAM Identity Center provides centralized workforce authentication and access. | IAM provides authorization for GCP resources, while Cloud Identity provides identity, user, and directory management. |
 
 Microsoft Entra ID centralizes identity at the tenant level and serves as a single directory for an entire organization. AWS IAM Identity Center instead sits above individual AWS accounts to unify workforce access across a multi-account AWS Organization, while raw AWS IAM manages permissions inside a single account. Google Cloud IAM applies permissions at the project level with inheritance through folders and organizations, and Cloud Identity supplies the directory/SSO layer comparable to Entra ID.
 
