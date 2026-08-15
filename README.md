@@ -137,10 +137,10 @@ All three platforms support security and compliance monitoring aligned with fram
 - **AWS Security Hub:** Pricing is based on factors such as security checks and findings ingested. Additional charges apply for services such as GuardDuty and Inspector based on their respective usage.
 - **Google Security Command Center:** Provides a Standard tier with basic security capabilities, while higher-tier offerings provide additional vulnerability detection, threat detection, and security operations features based on usage and protected resources.
 
+
 ### Integration for DevSecOps
 
 All three platforms provide APIs and integrations that can be incorporated into DevSecOps pipelines. Security findings can be used to **gate deployments**, such as failing a build when critical vulnerabilities are detected. Infrastructure-as-Code scanning can identify security issues before deployment, while automated remediation can be triggered through services such as Azure Logic Apps, AWS EventBridge with Lambda, or Google Cloud Workflows and functions. This supports a **shift-left security model**, where security checks are integrated throughout the development and deployment lifecycle.
----
 
 ## 5. SIEM / SOAR
 
