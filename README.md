@@ -56,23 +56,28 @@ All three platforms support CI/CD integration using service principals, roles, o
 ## 2. Monitoring & Log Analytics
 
 ### Overview
-| | Azure Monitor & Log Analytics | Amazon CloudWatch (+ CloudTrail) | Google Cloud Operations Suite |
+
+| **Aspect** | **Azure Monitor & Log Analytics** | **Amazon CloudWatch (+ CloudTrail)** | **Google Cloud Operations Suite** |
 |---|---|---|---|
-| **Purpose** | Unified metrics, logs, and traces for Azure and hybrid resources, queried with Kusto Query Language (KQL) | Metrics, logs, alarms (CloudWatch) plus API-activity auditing (CloudTrail) | Unified Cloud Logging + Cloud Monitoring, formerly Stackdriver |
+| **Purpose** | Unified metrics, logs, and traces for Azure and hybrid resources, with Kusto Query Language (KQL) for log analysis. | Metrics, logs, dashboards, and alarms through CloudWatch, combined with CloudTrail for API activity and governance auditing. | Unified Cloud Logging and Cloud Monitoring for logs, metrics, dashboards, and application performance monitoring. |
 
 ### Core Features
-- **Azure Monitor/Log Analytics:** Centralized Log Analytics workspaces, KQL queries, Application Insights (APM), Workbooks for dashboards, Alerts/Action Groups.
-- **CloudWatch/CloudTrail:** Custom metrics/dashboards, Logs Insights query language, Alarms with auto-scaling triggers, CloudTrail for full API call history and governance auditing.
-- **GCP Operations Suite:** Cloud Logging (structured, exportable to BigQuery/Pub/Sub), Cloud Monitoring dashboards and uptime checks, Cloud Trace and Cloud Profiler for APM.
+
+- **Azure Monitor / Log Analytics:** Centralized Log Analytics workspaces, KQL queries, Application Insights for application performance monitoring, Workbooks for dashboards, and Alerts/Action Groups.
+- **CloudWatch / CloudTrail:** Custom metrics and dashboards, Logs Insights for log queries, alarms that can trigger automated actions, and CloudTrail for API activity and governance auditing.
+- **GCP Operations Suite:** Cloud Logging with structured log exports to services such as BigQuery and Pub/Sub, Cloud Monitoring dashboards and uptime checks, and Cloud Trace and Cloud Profiler for application performance monitoring.
 
 ### Security & Compliance
-Each platform's monitoring layer inherits the parent platform's compliance certifications (SOC 1/2/3, ISO 27001, FedRAMP High, HIPAA-eligible). Log immutability/retention and export-to-SIEM capabilities are key controls auditors look for in all three; CloudTrail's log-file integrity validation and Azure Monitor's diagnostic settings pipeline into Sentinel/Security Hub/SecOps for centralized retention.
+
+All three platforms provide monitoring services that support workloads operating under major compliance frameworks such as SOC 1/2/3, ISO 27001, FedRAMP, and HIPAA, although the exact compliance scope depends on the specific service and configuration. Log retention, access controls, integrity, and the ability to export logs to a SIEM are important security controls across all three platforms. Azure Monitor can integrate with Microsoft Sentinel, AWS CloudTrail provides log-file integrity validation, and Google Cloud provides centralized logging and export capabilities for security analysis and long-term retention.
 
 ### Pricing Model
-All three follow **consumption-based pricing**: pay per GB ingested/retained (Log Analytics, CloudWatch Logs, Cloud Logging) plus per-metric and per-alarm charges. Azure and GCP typically include a modest free tier of log ingestion/retention (e.g., first several GB/month); AWS charges per metric beyond the free-tier basic metrics and per GB for Logs Insights queries.
+
+All three platforms primarily use **consumption-based pricing**. Costs can depend on factors such as the volume of logs and metrics collected, data retention, queries, and alerts. Azure Monitor and Log Analytics charge primarily based on data ingestion and retention, while CloudWatch charges for logs, custom metrics, alarms, and other monitoring features. Google Cloud similarly uses usage-based pricing for logging, monitoring, and related observability services. Each provider also offers free usage allowances for selected monitoring features.
 
 ### Integration for DevSecOps
-Native integration with each provider's IaC tooling (Bicep/ARM, CloudFormation/CDK, Terraform/Deployment Manager), Grafana/Prometheus exporters, and webhook/Action-Group-style alerting into ticketing or ChatOps tools (Slack, Teams, PagerDuty) for CI/CD pipeline observability and automated rollback triggers.
+
+All three platforms integrate with Infrastructure as Code (IaC) and DevSecOps tools. Azure supports Bicep, ARM templates, and Terraform; AWS supports CloudFormation, CDK, and Terraform; and GCP supports Terraform and Google Cloud deployment tools. They can also integrate with Prometheus, Grafana, CI/CD pipelines, ticketing systems, and ChatOps platforms such as Slack and Microsoft Teams. Alerts can be used to automatically trigger incident response, remediation, or deployment rollback processes.
 
 ---
 
