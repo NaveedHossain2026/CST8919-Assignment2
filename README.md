@@ -36,20 +36,20 @@ Throughout this course, we used Microsoft Azure to implement identity, monitorin
 Microsoft Entra ID (formerly Azure AD) centralizes identity at the tenant level and serves as a single directory for an entire organization. AWS IAM Identity Center instead sits above individual AWS accounts to unify workforce access across a multi-account AWS Organization, while raw AWS IAM manages permissions inside a single account. Google Cloud IAM applies permissions at the project level with inheritance through folders and organizations, and Cloud Identity supplies the directory/SSO layer comparable to Entra ID.
 
 ### Core Features
-- **Microsoft Entra ID (formerly Azure AD):** Conditional Access, Privileged Identity Management (PIM/JIT access), Identity Protection (risk-based sign-in analytics), B2B/B2C guest access, Application Proxy for on-prem apps.
-- **AWS IAM / Identity Center:** Fine-grained JSON policies down to individual API actions, roles/service-linked roles, permission sets applied across accounts, external IdP federation (SAML/SCIM).
-- **Google Cloud IAM / Cloud Identity:** Predefined and custom IAM roles, context-aware access, org-policy inheritance, integration with Google Workspace, passwordless sign-in.
+- **Microsoft Entra ID (formerly Azure AD):** Provides Conditional Access, Privileged Identity Management (PIM) for just-in-time access, Identity Protection for risk-based sign-in analysis, B2B/B2C guest access, and Application Proxy for accessing on-premises applications.
+- **AWS IAM / Identity Center:** Offers detailed JSON policies that can control individual API actions, roles and service-linked roles, permission sets for managing access across multiple AWS accounts, and federation with external identity providers using SAML/SCIM.
+- **Google Cloud IAM / Cloud Identity:** Provides predefined and custom IAM roles, context-aware access, organization policy inheritance, Google Workspace integration, and passwordless sign-in.
 
 ### Security & Compliance
-All three support SOC 2, ISO 27001, FedRAMP, and industry frameworks such as PCI DSS and HIPAA at the platform level. Entra ID adds built-in Conditional Access and Identity Protection risk scoring; AWS IAM relies more heavily on precise (but complex) policy authoring and is often paired with third-party PAM tooling for JIT access; Google Cloud emphasizes transparent audit logging and simpler per-user licensing.
+All three platforms support major compliance standards such as SOC 2, ISO 27001, FedRAMP, PCI DSS, and HIPAA. Entra ID provides built-in Conditional Access and risk-based Identity Protection. AWS IAM offers detailed and flexible policies but can be more complex and may require additional PAM tools for just-in-time access. Google Cloud focuses on clear audit logging and straightforward per-user licensing.
 
 ### Pricing Model
-- **Entra ID:** Free tier included with Azure/M365; Premium P1/P2 tiers add Conditional Access, PIM, and Identity Protection (roughly $6–$9 USD/user/month for P1/P2 tiers).
-- **AWS IAM:** IAM itself is free; IAM Identity Center is free — costs come from the accounts/resources it governs.
-- **GCP:** Cloud IAM is free; Cloud Identity is free for basic use, with the paid Cloud Identity Premium tier priced per user/month for advanced device and app management.
+- **Entra ID:** The free tier is included with Azure and Microsoft 365. Premium P1/P2 add features such as Conditional Access, PIM, and Identity Protection, with pricing typically around $6–$9 USD per user/month.
+- **AWS IAM:** IAM and IAM Identity Center are free to use. Costs mainly come from the AWS services and resources being managed.
+- **GCP:** Cloud IAM is free. Cloud Identity has a free basic tier, while the Premium tier charges per user/month for advanced device and application management.
 
 ### Integration for DevSecOps
-All three integrate with CI/CD via service principals / roles / service accounts, support Terraform/ARM/CloudFormation/Deployment Manager for IaC-driven access provisioning, and can be federated together (e.g., Entra ID federated into AWS IAM Identity Center via SAML/SCIM) in real-world multi-cloud environments.
+All three platforms support CI/CD integration using service principals, roles, or service accounts. They also support Infrastructure as Code (IaC) tools such as Terraform, ARM, CloudFormation, and Deployment Manager for managing access. In multi-cloud environments, these identity systems can also be connected through federation, allowing users to access multiple cloud platforms with a single identity.
 
 ---
 
