@@ -84,25 +84,30 @@ All three platforms integrate with Infrastructure as Code (IaC) and DevSecOps to
 ## 3. Policy & Governance
 
 ### Overview
-| | Azure Policy | AWS Config + Organizations (SCPs) | GCP Organization Policy Service |
+
+| **Aspect** | **Azure Policy** | **AWS Config + Organizations (SCPs)** | **GCP Organization Policy Service** |
 |---|---|---|---|
-| **Purpose** | Enforces and audits organizational standards/compliance across Azure resources | AWS Config continuously assesses resource configuration compliance; Service Control Policies (SCPs) in AWS Organizations set guardrails at the account/OU level | Centrally constrains which GCP resource configurations are allowed, enforced through the resource hierarchy |
+| **Purpose** | Enforces and audits organizational standards and compliance across Azure resources. | AWS Config continuously assesses resource configuration compliance, while Service Control Policies (SCPs) in AWS Organizations establish guardrails at the account and organizational-unit (OU) level. | Centrally restricts which GCP resource configurations are allowed through the resource hierarchy. |
 
 ### Core Features
-- **Azure Policy:** Built-in and custom policy definitions, Initiatives (policy sets), deny/audit/deployIfNotExists effects, compliance dashboard, remediation tasks.
-- **AWS Config/SCPs:** Config Rules (managed and custom via Lambda), Conformance Packs bundling multiple rules, SCPs that set maximum permission boundaries per OU/account, drift detection.
-- **GCP Organization Policy:** Boolean/list constraints applied at org/folder/project level, policy inheritance, dry-run mode, custom constraints via Common Expression Language (CEL).
+
+- **Azure Policy:** Built-in and custom policy definitions, Initiatives (policy sets), `deny`, `audit`, and `deployIfNotExists` effects, compliance dashboards, and remediation tasks.
+- **AWS Config / SCPs:** Config Rules, including managed and custom rules using Lambda, Conformance Packs for grouping multiple rules, SCPs that define maximum permissions for OUs and accounts, and configuration drift detection.
+- **GCP Organization Policy:** Boolean and list constraints applied at the organization, folder, or project level, policy inheritance, dry-run mode, and custom constraints using Common Expression Language (CEL).
 
 ### Security & Compliance
-All three map to common compliance frameworks (CIS Benchmarks, NIST 800-53, PCI DSS) via built-in policy/rule packs. Azure Policy's Regulatory Compliance dashboard and AWS Config Conformance Packs both provide continuous compliance scoring; GCP's Organization Policy is intentionally narrower (preventive guardrails) and is usually paired with SCC for detective/compliance reporting.
+
+All three platforms can support common security and compliance frameworks such as CIS Benchmarks, NIST 800-53, and PCI DSS. Azure Policy provides a Regulatory Compliance dashboard, while AWS Config Conformance Packs can group rules for continuous compliance monitoring. GCP Organization Policy focuses primarily on preventive guardrails and is commonly combined with Security Command Center (SCC) for broader security and compliance monitoring.
 
 ### Pricing Model
-- **Azure Policy:** Free for standard policy evaluation; DeployIfNotExists remediation and resource changes may incur costs from the resources created.
-- **AWS Config:** Charged per configuration item recorded and per rule evaluation; Conformance Packs add evaluation costs.
-- **GCP Organization Policy:** Free to use; cost is indirect (e.g., BigQuery/SCC costs if paired with reporting tools).
+
+- **Azure Policy:** Standard policy evaluation is generally available without a separate policy charge. However, remediation actions and resources created through policies may incur normal Azure resource costs.
+- **AWS Config:** Charges are based on configuration items recorded and rule evaluations. Additional costs may apply when using Conformance Packs and related services.
+- **GCP Organization Policy:** The Organization Policy Service itself does not generally have a separate usage charge. Costs may occur indirectly when it is combined with services such as Security Command Center or BigQuery for reporting and analysis.
 
 ### Integration for DevSecOps
-Policies-as-code is the common pattern: Azure Policy definitions and Initiatives can be version-controlled and deployed via Bicep/ARM/Terraform in a pipeline; AWS Config Rules and SCPs are deployable via CloudFormation/Terraform and validated in CI before merge; GCP Organization Policies integrate with Terraform and Cloud Build for policy-gated deployments. All three support "shift-left" policy checks (e.g., pre-deployment `what-if`/plan validation) before resources reach production.
+
+**Policy-as-code** is a common DevSecOps pattern across all three providers. Azure Policy definitions and Initiatives can be version-controlled and deployed through Bicep, ARM templates, or Terraform pipelines. AWS Config Rules and SCPs can be managed through CloudFormation or Terraform and validated as part of CI/CD workflows. GCP Organization Policies can be managed with Terraform and integrated into Cloud Build workflows. These approaches support **shift-left security**, allowing policies and infrastructure configurations to be validated before resources are deployed to production.
 
 ---
 
