@@ -7,7 +7,7 @@
 
 ## Introduction
 
-Throughout CST8919 we used Microsoft Azure to implement identity, monitoring, policy, and threat-detection controls as part of a broader DevSecOps workflow. Cloud security concepts are portable, but implementation details, product names, and pricing models differ across providers. This report maps five core Azure services to their closest Amazon Web Services (AWS) and Google Cloud Platform (GCP) equivalents, and compares them on features, security/compliance posture, pricing, and DevSecOps integration.
+Throughout this course, we used Microsoft Azure to implement identity, monitoring, policy, and threat-detection controls as part of a broader DevSecOps workflow. Although cloud security concepts are transferable across cloud providers, the specific services, product names, features, and pricing models vary between platforms. This report maps five core Azure services to their closest equivalents in Amazon Web Services (AWS) and Google Cloud Platform (GCP). It compares these services based on their features, security and compliance capabilities, pricing models, and integration with DevSecOps practices.
 
 
 
