@@ -29,14 +29,14 @@ Throughout this course, we used Microsoft Azure to implement identity, monitorin
 
 ## Overview
 
-| **Aspect** | **Microsoft Entra ID** | **AWS IAM / IAM Identity Center** | **Google Cloud IAM / Cloud Identity** |
+| **Aspect** | **Microsoft Entra ID (formerly Azure AD)** | **AWS IAM / IAM Identity Center** | **Google Cloud IAM / Cloud Identity** |
 |---|---|---|---|
 | **Primary role** | Full Identity Provider (IdP) that authenticates users and manages identities and access to applications and cloud resources. | Primarily an access-management and authorization system for AWS resources and APIs. IAM Identity Center provides centralized workforce authentication and access. | IAM provides authorization for GCP resources, while Cloud Identity provides identity, user, and directory management. |
 
-Microsoft Entra ID centralizes identity at the tenant level and serves as a single directory for an entire organization. AWS IAM Identity Center instead sits above individual AWS accounts to unify workforce access across a multi-account AWS Organization, while raw AWS IAM manages permissions inside a single account. Google Cloud IAM applies permissions at the project level with inheritance through folders and organizations, and Cloud Identity supplies the directory/SSO layer comparable to Entra ID.
+Microsoft Entra ID (formerly Azure AD) centralizes identity at the tenant level and serves as a single directory for an entire organization. AWS IAM Identity Center instead sits above individual AWS accounts to unify workforce access across a multi-account AWS Organization, while raw AWS IAM manages permissions inside a single account. Google Cloud IAM applies permissions at the project level with inheritance through folders and organizations, and Cloud Identity supplies the directory/SSO layer comparable to Entra ID.
 
 ### Core Features
-- **Microsoft Entra ID:** Conditional Access, Privileged Identity Management (PIM/JIT access), Identity Protection (risk-based sign-in analytics), B2B/B2C guest access, Application Proxy for on-prem apps.
+- **Microsoft Entra ID (formerly Azure AD):** Conditional Access, Privileged Identity Management (PIM/JIT access), Identity Protection (risk-based sign-in analytics), B2B/B2C guest access, Application Proxy for on-prem apps.
 - **AWS IAM / Identity Center:** Fine-grained JSON policies down to individual API actions, roles/service-linked roles, permission sets applied across accounts, external IdP federation (SAML/SCIM).
 - **Google Cloud IAM / Cloud Identity:** Predefined and custom IAM roles, context-aware access, org-policy inheritance, integration with Google Workspace, passwordless sign-in.
 
