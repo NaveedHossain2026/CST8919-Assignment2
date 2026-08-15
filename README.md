@@ -9,7 +9,7 @@
 
 Throughout CST8919 we used Microsoft Azure to implement identity, monitoring, policy, and threat-detection controls as part of a broader DevSecOps workflow. Cloud security concepts are portable, but implementation details, product names, and pricing models differ across providers. This report maps five core Azure services to their closest Amazon Web Services (AWS) and Google Cloud Platform (GCP) equivalents, and compares them on features, security/compliance posture, pricing, and DevSecOps integration.
 
-> **Naming note:** Microsoft rebranded **Azure Active Directory (Azure AD)** to **Microsoft Entra ID**, and **Azure Sentinel** to **Microsoft Sentinel**. This report uses the current names but references the legacy names since that is how they were introduced in the course.
+
 
 ---
 
