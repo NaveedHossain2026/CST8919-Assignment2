@@ -142,30 +142,35 @@ All three platforms support security and compliance monitoring aligned with fram
 
 All three platforms provide APIs and integrations that can be incorporated into DevSecOps pipelines. Security findings can be used to **gate deployments**, such as failing a build when critical vulnerabilities are detected. Infrastructure-as-Code scanning can identify security issues before deployment, while automated remediation can be triggered through services such as Azure Logic Apps, AWS EventBridge with Lambda, or Google Cloud Workflows and functions. This supports a **shift-left security model**, where security checks are integrated throughout the development and deployment lifecycle.
 
-## 5. SIEM / SOAR
+## 5. Security Information and Event Management (SIEM) & Security Operations
 
 ### Overview
-| | Microsoft Sentinel | AWS Security Lake (+ GuardDuty/Detective) | Google Security Operations (SecOps, formerly Chronicle) |
-|---|---|---|---|
-| **Purpose** | Cloud-native SIEM + SOAR built on Azure, ingesting logs across Microsoft and third-party sources | Centralizes security data in OCSF format in a customer-owned data lake; typically paired with GuardDuty/Detective or a third-party SIEM for analytics | Cloud-native SIEM+SOAR built on Google's infrastructure, combining large-scale log analytics with Mandiant threat intelligence |
 
-Microsoft Sentinel emphasizes automation and identity-centric analytics and integrates tightly with Defender products and Entra ID signals. AWS does not ship a single native full SIEM equivalent; Security Lake normalizes and centralizes security telemetry (in Open Cybersecurity Schema Framework format) so it can be analyzed by GuardDuty/Detective or exported to a partner SIEM — meaning AWS's "equivalent" is really a composition of services. Google SecOps (rebranded from Chronicle) combines SIEM, SOAR, and threat intelligence in one platform, using the YARA-L detection language and Gemini-powered AI for natural-language investigation, with Mandiant and VirusTotal intelligence built in.
+| **Aspect** | **Microsoft Sentinel** | **AWS Security Lake (+ GuardDuty/Detective)** | **Google Security Operations (SecOps, formerly Chronicle)** |
+|---|---|---|---|
+| **Purpose** | Cloud-native SIEM and SOAR platform built on Azure that ingests and analyzes security data from Microsoft and third-party sources. | Centralizes security data using the Open Cybersecurity Schema Framework (OCSF) in a customer-controlled data lake and is typically combined with GuardDuty, Detective, or third-party SIEM tools for analysis. | Cloud-native SIEM and SOAR platform built on Google's infrastructure, combining large-scale security analytics with Mandiant threat intelligence. |
+
+Microsoft Sentinel emphasizes automated security operations and identity-focused analytics, with tight integration with Microsoft Defender and Entra ID. AWS does not provide a single service that directly matches a full SIEM platform. Instead, Security Lake centralizes and normalizes security telemetry so it can be analyzed by services such as GuardDuty and Detective or by third-party SIEM platforms. Google Security Operations combines SIEM, SOAR, and threat intelligence in a single platform, using YARA-L for detection rules and integrating Mandiant threat intelligence and AI-assisted investigation capabilities.
 
 ### Core Features
-- **Sentinel:** KQL-based analytics rules, built-in and custom playbooks (Logic Apps) for SOAR, UEBA (User and Entity Behavior Analytics), MITRE ATT&CK mapping, dual-tier pricing separating an Analytics tier from a lower-cost Data Lake tier.
-- **AWS Security Lake:** OCSF-normalized centralized log storage across accounts/regions, native integration with GuardDuty/Detective/Security Hub, subscriber model for third-party SIEM tools (Splunk, Sumo Logic, etc.).
-- **Google SecOps:** YARA-L 2.0 correlation rules, Retrohunt (re-running new detection rules against up to 12 months of historical hot data), curated detections, Gemini AI-assisted investigation, built-in SOAR case management.
+
+- **Microsoft Sentinel:** KQL-based analytics rules, Logic Apps playbooks for SOAR, User and Entity Behavior Analytics (UEBA), MITRE ATT&CK mapping, and separate Analytics and Data Lake capabilities for different data-retention and analysis requirements.
+- **AWS Security Lake:** OCSF-normalized security data collection across AWS accounts and regions, integration with GuardDuty, Detective, and Security Hub, and a subscriber model for third-party SIEM platforms such as Splunk and Sumo Logic.
+- **Google Security Operations:** YARA-L correlation rules, historical threat hunting capabilities, curated detections, AI-assisted investigations, and built-in SOAR case management and response playbooks.
 
 ### Security & Compliance
-All are backed by the parent platform's compliance certifications. A key differentiator is default hot-data retention: Google SecOps includes roughly 12 months of hot-state retention by default, while Sentinel's default hot retention is around 90 days with additional cost to extend (mitigated by its 2026 Data Lake tier). AWS's approach shifts retention/compliance control largely to the customer since Security Lake is a data lake the customer owns and configures.
+
+All three platforms operate within their respective cloud providers' broader security and compliance ecosystems. A major difference is how security data is stored and retained. Google Security Operations provides long-term security data retention designed for threat hunting and investigation, while Microsoft Sentinel provides configurable retention options through its analytics and data-lake capabilities. AWS Security Lake gives organizations greater control over their centralized security data because the underlying data lake and retention configuration are managed as part of the customer's AWS environment.
 
 ### Pricing Model
-- **Sentinel:** Consumption-based, billed per GB ingested into the Analytics tier (with a cheaper Data Lake tier for long-term/infrequently queried data).
-- **AWS Security Lake:** Billed for data ingestion/normalization and S3 storage; downstream analytics tools (GuardDuty, Detective, or third-party SIEM) are billed separately.
-- **Google SecOps:** Often licensed via fixed/subscription pricing based on ingestion volume tier rather than strict per-GB billing, which can reduce cost unpredictability during incident-driven log spikes.
+
+- **Microsoft Sentinel:** Primarily uses consumption-based pricing based on data ingestion, with different pricing options available for analytics and data-lake storage.
+- **AWS Security Lake:** Charges are based on factors such as security data ingestion and normalization, with additional AWS storage costs. Services such as GuardDuty, Detective, and third-party SIEM platforms have separate pricing.
+- **Google Security Operations:** Typically uses subscription or contracted pricing based on factors such as data ingestion volume and service tier rather than relying entirely on per-GB billing. This can provide more predictable costs during periods of increased security activity.
 
 ### Integration for DevSecOps
-All three support automated playbooks/response (Sentinel Logic Apps playbooks, AWS EventBridge + Lambda/Step Functions, Google SOAR playbooks), API-driven detection-as-code workflows that can be version-controlled and CI/CD-deployed, and integration with ticketing/ChatOps tools to close the loop between detection and remediation in a DevSecOps pipeline.
+
+All three platforms support automated detection and response workflows. Microsoft Sentinel can use Logic Apps playbooks, AWS can use EventBridge with Lambda or Step Functions, and Google Security Operations provides SOAR playbooks for automated response. Detection rules and security configurations can also be managed as code, version-controlled, and deployed through CI/CD pipelines. Integration with ticketing and ChatOps platforms helps connect security monitoring with development and operations teams, allowing detected issues to trigger automated investigation, remediation, or deployment controls.
 
 ---
 
