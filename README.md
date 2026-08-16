@@ -1,6 +1,6 @@
 # Cloud Service Alternatives Report
 ### CST8919 – DevOps Security and Compliance | Assignment 2
-**Author:** _[Your Name]_
+**Author:** Naveed Hossain
 **Date:** August 15, 2026
 
 ---
@@ -175,9 +175,9 @@ All three platforms support automated detection and response workflows. Microsof
 ---
 
 ## Sources
-- Microsoft Learn — Microsoft Entra ID, Azure Monitor, Azure Policy, Defender for Cloud, Microsoft Sentinel documentation
+- Microsoft Learn — Microsoft Entra ID, Azure Monitor, Azure Policy, Defender for Cloud, Microsoft Sentinel documentation https://docs.azure.cn/en-us/?product=popular
 - AWS Documentation — IAM, IAM Identity Center, CloudWatch, CloudTrail, Config, Security Hub, GuardDuty, Inspector, Security Lake https://docs.aws.amazon.com/
-- Google Cloud Documentation — Cloud IAM, Cloud Identity, Cloud Operations Suite, Organization Policy Service, Security Command Center, Google Security Operations (SecOps)
-- Industry comparison analyses (Gartner Peer Insights, G2, Sysdig, Scybers, TechLeague), accessed August 2026
+- Google Cloud Documentation — Cloud IAM, Cloud Identity, Cloud Operations Suite, Organization Policy Service, Security Command Center, Google Security Operations (SecOps) https://docs.cloud.google.com/
+
 
 ---
