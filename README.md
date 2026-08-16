@@ -174,15 +174,6 @@ All three platforms support automated detection and response workflows. Microsof
 
 ---
 
-## Summary & Recommendations
-
-- **Single-cloud, Microsoft-centric organizations** benefit most from the tightly integrated Azure stack (Entra ID → Monitor → Policy → Defender for Cloud → Sentinel), since each service shares identity context and feeds the next.
-- **AWS-native organizations** get comparable coverage but must compose several services (IAM Identity Center, CloudWatch/CloudTrail, Config/SCPs, Security Hub/GuardDuty/Inspector, Security Lake) rather than a single unified product — offering more granular control at the cost of more integration work.
-- **GCP-native organizations** benefit from simpler, more centralized pricing (e.g., SecOps's generous default retention) and strong inheritance-based governance (Organization Policy), with Security Command Center and SecOps closing the gap on CSPM/SIEM capability.
-- In **multi-cloud environments**, it is common to see hybrid architectures — e.g., Microsoft Entra ID as the master identity provider federated into AWS IAM Identity Center and Google Cloud Identity, or Microsoft Defender for Cloud used to monitor posture across all three clouds from a single pane of glass.
-
----
-
 ## Sources
 - Microsoft Learn — Microsoft Entra ID, Azure Monitor, Azure Policy, Defender for Cloud, Microsoft Sentinel documentation
 - AWS Documentation — IAM, IAM Identity Center, CloudWatch, CloudTrail, Config, Security Hub, GuardDuty, Inspector, Security Lake https://docs.aws.amazon.com/
