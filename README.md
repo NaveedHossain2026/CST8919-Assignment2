@@ -1,6 +1,7 @@
 # Cloud Service Alternatives Report
 ### CST8919 – DevOps Security and Compliance | Assignment 2
-**Author:** Naveed Hossain
+ Naveed Hossain
+
 **Date:** August 15, 2026
 
 ---
